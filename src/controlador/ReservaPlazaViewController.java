@@ -21,7 +21,7 @@ public class ReservaPlazaViewController implements ActionListener {
     //Acciones del Listener.
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        //Recorre el array de botones poniendo el fondo blanco
         if (e.getSource() == this.reservaView.button_conf) {
             for (int i = 0; i < reservaView.buttons_sits.length; i++) {
 
@@ -33,11 +33,13 @@ public class ReservaPlazaViewController implements ActionListener {
 
                 }
             }
-
+        
         } else if (e.getSource() == this.reservaView.button_cancel) {
+            //recorre el array de botones volviendolos disponibles y poniendolos negros
             for (JButton buttons_sit : reservaView.buttons_sits) {
                 if (buttons_sit.isEnabled()) {
                     buttons_sit.setForeground(Color.black);
+                    //
                     for (int i =0; i< reservaView.buttons_sits.length; i++) {
                         if (reservaView.plazas[i].isLibre()) {
                             reservaView.buttons_sits[i].setEnabled(true);
@@ -56,7 +58,7 @@ public class ReservaPlazaViewController implements ActionListener {
 
                         reservaView.plazas[i].setLibre(false);
 
-                        reservaView.buttons_sits[i].setForeground(Color.white);
+                        //reservaView.buttons_sits[i].setForeground(Color.white);
                         reservaView.buttons_sits[i].setBackground(Color.blue);
 
                         reservaView.button_cancel.setEnabled(true);
